@@ -306,7 +306,7 @@
           // NOTE: Presumes meta with one or more replicas
           for (int j = 0; j < numMetaReplicas; j++) {
             RegionInfo meta = RegionReplicaUtil.getRegionInfoForReplica(
-                                    RegionInfoBuilder.FIRST_META_REGIONINFO, j);
+              RegionInfoBuilder.newBuilder(TableName.META_TABLE_NAME).build(), j);
             RegionState regionState = master.getAssignmentManager().getRegionStates().getRegionState(meta);
             ServerName metaLocation = regionState != null ? regionState.getServerName() : null;
             for (int i = 0; i < 1; i++) {
@@ -372,7 +372,7 @@
            // NOTE: Presumes meta with one or more replicas
            for (int j = 0; j < numMetaReplicas; j++) {
              RegionInfo meta = RegionReplicaUtil.getRegionInfoForReplica(
-                                     RegionInfoBuilder.FIRST_META_REGIONINFO, j);
+               RegionInfoBuilder.newBuilder(TableName.META_TABLE_NAME).build(), j);
              RegionState regionState = master.getAssignmentManager().getRegionStates().getRegionState(meta);
              ServerName metaLocation = regionState != null ? regionState.getServerName() : null;
              for (int i = 0; i < 1; i++) {
@@ -421,8 +421,8 @@
           // NOTE: Presumes meta with one or more replicas
           for (int j = 0; j < numMetaReplicas; j++) {
             RegionInfo meta = RegionReplicaUtil.getRegionInfoForReplica(
-                                    RegionInfoBuilder.FIRST_META_REGIONINFO, j);
-                        RegionState regionState = master.getAssignmentManager().getRegionStates().getRegionState(meta);
+              RegionInfoBuilder.newBuilder(TableName.META_TABLE_NAME).build(), j);
+            RegionState regionState = master.getAssignmentManager().getRegionStates().getRegionState(meta);
             ServerName metaLocation = regionState != null ? regionState.getServerName() : null;
             for (int i = 0; i < 1; i++) {
               String hostAndPort = "";
